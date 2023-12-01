@@ -1,0 +1,43 @@
+import axios from "axios";
+
+const URL: string = "http://localhost:4001/api/v1/admin";
+export const createAccount = async (data: any) => {
+  try {
+    return await axios.post(`${URL}/sign-up-Admin"`, data).then((res: any) => {
+      // console.log(user);
+      return res.data;
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
+export const verifyAccount = async (data: any) => {
+  try {
+    return await axios.patch(`${URL}/verify-Admin"`, data).then((res: any) => {
+      return res.data;
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
+export const signInAccount = async (data: any) => {
+  try {
+    return await axios.post(`${URL}/sign-in-Admin`, data).then((res: any) => {
+      return res.data;
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getAccountOwner = async (AdminID: string) => {
+  try {
+    return await axios.get(`${URL}/read-Admin/${AdminID}`).then((res: any) => {
+      return res.data;
+    });
+  } catch (error) {
+    return error;
+  }
+};
